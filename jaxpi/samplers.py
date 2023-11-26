@@ -4,10 +4,10 @@ from functools import partial
 import jax.numpy as jnp
 from jax import random, pmap, local_device_count
 
-from torch.utils.data import Dataset
+import jax_dataloader as jdl
 
 
-class BaseSampler(Dataset):
+class BaseSampler(jdl.Dataset):
     def __init__(self, batch_size, rng_key=random.PRNGKey(1234)):
         self.batch_size = batch_size
         self.key = rng_key
